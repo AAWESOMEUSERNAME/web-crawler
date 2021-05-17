@@ -1,0 +1,11 @@
+{
+  "name": "web-crawler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:AAWESOMEUSERNAME/web-crawler.git",
+  "author": "chenyiyang <yiyang.chen@medtreehealth.com>",
+  "license": "MIT",
+  "dependencies": {
+    "yql": "^1.0.2"
+  }
+}
