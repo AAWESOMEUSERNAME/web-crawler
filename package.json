@@ -1,7 +1,7 @@
 {
   "name": "web-crawler",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "repository": "git@github.com:AAWESOMEUSERNAME/web-crawler.git",
   "author": "chenyiyang <yiyang.chen@medtreehealth.com>",
   "license": "MIT",
@@ -15,5 +15,6 @@
   "type": "module",
   "scripts": {
     "start": "node src/crawler.js"
-  }
+  },
+  "devDependencies": {}
 }

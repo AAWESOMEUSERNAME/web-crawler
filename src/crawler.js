@@ -1,20 +1,18 @@
 import got from 'got'
 import {JSDOM} from 'jsdom'
-import {addArticle} from './service.js'
+import {addArticle} from './db.js'
 import moment from "moment"
+import {snooze} from './common.js'
 
-let snooze = (ms) => new Promise((resolve) => setTimeout(() => {
-  console.log('continue to fetch')
-  resolve()
-}, ms));
 
 (async () => {
   console.log('start')
-  let i = 1
-  for (; ; i++) {
-    console.log(`fetch from page ${i}`)
-    got(`https://swungover.wordpress.com/page/${i}/?blogsub=confirming`).then(res => {
-      console.log(`handle data from page ${i}`)
+  let page = 1
+  const maxPage = 57
+  for (; page <= maxPage; page++) {
+    console.log(`fetch from page ${page}`)
+    got(`https://swungover.wordpress.com/page/${page}/?blogsub=confirming`).then(res => {
+      console.log(`handle data from page ${page}`)
       let doc = new JSDOM(res.body).window.document;
       let header = doc.querySelectorAll('.post .post-header');
       header.forEach(header => {
@@ -26,15 +24,10 @@ let snooze = (ms) => new Promise((resolve) => setTimeout(() => {
       })
     }).catch(reason => {
       console.error(reason)
-      break
     });
 
     console.log('wait for next fetch')
     await snooze(1000)
-    if (i > 1000) {
-      console.error('too much request')
-      break
-    }
   }
 })()
 
