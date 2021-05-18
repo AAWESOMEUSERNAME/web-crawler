@@ -6,6 +6,14 @@
   "author": "chenyiyang <yiyang.chen@medtreehealth.com>",
   "license": "MIT",
   "dependencies": {
-    "yql": "^1.0.2"
+    "got": "^11.8.2",
+    "jsdom": "^16.5.3",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "typescript": "^4.2.4"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node src/crawler.js"
   }
 }
