@@ -10,11 +10,18 @@
     "jsdom": "^16.5.3",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
-    "typescript": "^4.2.4"
+    "sqlite3": "^5.0.2"
   },
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "start": "node src/crawler.js"
+    "build": "tsc",
+    "swungover": "npm run build && node ./dist/swungOverCrawler.js",
+    "test": "npm run build && node ./dist/test.js"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/jsdom": "^16.2.13",
+    "@types/mysql": "^2.15.19",
+    "@types/node": "^16.11.12",
+    "@types/sqlite3": "^3.1.7"
+  }
 }
